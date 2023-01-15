@@ -6,7 +6,7 @@ I've downloaded all zipped GeoJSON files, partitioned by Country (see the 3-char
 
 You can find all the files at [this location](https://1drv.ms/f/s!AjLylE7EHUYSif5_eYKEVl3OJ1RdNg), for 202 Countries and 49 US States (the number of *lines* in each country/state file can be found in the column `nlines` in the two `csv` files mentioned above). 
 
-The files have been serialized using the [qs](https://cran.r-project.org/package=) package.
+The files have been serialized using the [qs](https://cran.r-project.org/package=qs) package.
 
 I suggest you use the [leaflet](https://cran.r-project.org/package=leaflet) package to visualize the roads, together with the [leafgl](https://cran.r-project.org/package=leafgl) add-on:
 ```
