@@ -4,7 +4,7 @@
 
 I've downloaded all zipped GeoJSON files, partitioned by Country (see the 3-chars `iso3` column in the `countries.csv` file) and US State (see the 2-chars `code` column in the `states.csv` file), and converted each as digital vector files to be easily loaded into $R$ using the [sf](https://cran.r-project.org/package=sf) package. The coordinate reference system is [WGS84](https://epsg.io/4326) or `EPSG:4326`.
 
-You can find all the files at [this location](https://1drv.ms/f/s!AjLylE7EHUYSif5_eYKEVl3OJ1RdNg), for 202 Countries and 49 US States (the number of *lines* in each country/state file can be found in the column `nlines` in the two `csv` files). 
+You can find all the files at [this location](https://1drv.ms/f/s!AjLylE7EHUYSif5_eYKEVl3OJ1RdNg), for 202 Countries and 49 US States (the number of *lines* in each country/state file can be found in the column `nlines` in the two `csv` files mentioned above). 
 
 The files have been serialized using the [qs](https://cran.r-project.org/package=) package.
 
