@@ -22,7 +22,7 @@ The biggest file is for *India*, with more than 13 millions lines, needing at le
 ```
 y <- qread('/path/to/downloads/IND')
 yx <- st_read('/path/to/delhi_administrative.shp')
-ynd <- y |> filter(yx)
+ynd <- y |> st_filter(yx)
 leaflet() |> 
     addTiles() |>
     addPolylines(data = yx |> st_cast('LINESTRING'), color = 'black', fillOpacity = 0) |> 
