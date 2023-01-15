@@ -14,20 +14,22 @@ library(qs)
 library(sf)
 library(leaflet)
 library(leafgl)
-y <- qread('/path/to/downloads/XXX')
+y <- qread('/path/to/downloads/XXX', nthreads = 8)
 leaflet() |> addTiles() |> addGlPolylines(y)
 ```
 
 The biggest file is for *India*, with more than 13 millions lines, needing at least 7GB RAM only to keep the spatial data in memory. Acting on it requires obviously more memory for operations. For example, filtering out the roads for the Capital city only, ~120K, requires more than 16GB:
 ```
-y <- qread('/path/to/downloads/IND')
-yx <- st_read('/path/to/delhi_administrative.shp')
+y <- qread('/path/to/downloads/IND', nthreads = 8)
+yx <- st_read('/path/to/downloads/delhi_administrative.shp')
 ynd <- y |> st_filter(yx)
 leaflet() |> 
     addTiles() |>
     addPolylines(data = yx |> st_cast('LINESTRING'), color = 'black', fillOpacity = 0) |> 
     addGlPolylines(ynd)
 ```
-You can see the result with the attached leaflet html map `New_Delhi.html`
+You can see the result with the attached leaflet html map `New_Delhi.html` (besides the downloads, the process took a bit over 5 minutes to complete on an AMD Ryzen 9 5900X machine).
+
+Moreover, if you need more than one country just use the `rbind` command, listing all the countries you need (be careful here because of the overhead you need more memory than the total combined for the involved countries).
 
 Finally, notice that ~450K US roads (out of more than 54 mlns) have been deleted because of either being single points or dropped in the validation process. This problem was not reported in any of the other Country's files.
