@@ -30,8 +30,6 @@ leaflet() |>
 ```
 You can see the result with the attached leaflet html map `New_Delhi.html` (besides the downloads, the process took a bit over 5 minutes to complete on an AMD Ryzen 9 5900X machine).
 
-For deeper analysis, the [sfnetwork](https://cran.r-project.org/package=sfnetwork   ) is a must!
-
 Moreover, if you need more than one country just use the `rbind` command, listing all the countries you need (be careful here because of the overhead you need more memory than the total combined for the involved countries).
 
 Finally, notice that ~450K US roads (out of more than 54 mlns) have been deleted because of either being single points or dropped in the validation process. This problem was not reported in any of the other Country's files.
