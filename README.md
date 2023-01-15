@@ -14,14 +14,14 @@ library(qs)
 library(sf)
 library(leaflet)
 library(leafgl)
-y <- qread('/file/to/downloads/XXX')
+y <- qread('/path/to/downloads/XXX')
 leaflet() |> addTiles() |> addGlPolylines(y)
 ```
 
 The biggest file is for *India*, with more than 13 millions lines, needing at least 7GB RAM only to keep the spatial data in memory. Acting on it requires obviously more memory for operations. For example, filtering out the roads for the Capital city only, ~120K, requires more than 16GB:
 ```
-y <- qread('/file/to/downloads/IND')
-yx <- st_read('/file/to/delhi_administrative.shp')
+y <- qread('/path/to/downloads/IND')
+yx <- st_read('/path/to/delhi_administrative.shp')
 ynd <- y |> filter(yx)
 leaflet() |> 
     addTiles() |>
